@@ -1410,3 +1410,15 @@ h2{
 .envelope { transform-style: flat; perspective: 1000px; }
 .opening.flap-open .envelope > .envelope-flap { z-index: 4; }
 .opening.flap-settled .envelope > .envelope-flap { z-index: 1; }
+
+/* Вся сцена: 0,8 с + 1 с + 1,4 с + 1 с + 0,8 с ≈ 5 с.
+   Письмо и корпус используют одинаковый easing для точной компенсации. */
+.opening { transition-duration: .8s, .8s; transition-timing-function: cubic-bezier(.4,0,.2,1); }
+.envelope > .wax-seal { transition-duration: .75s, .8s, .75s; transition-timing-function: cubic-bezier(.32,0,.2,1); }
+.envelope > .envelope-flap { transition-duration: 1s; transition-timing-function: cubic-bezier(.4,0,.22,1); }
+.envelope { transition-duration: 1.4s; transition-timing-function: cubic-bezier(.37,0,.22,1); }
+.envelope > .letter,
+.opening.envelope-lowered .envelope > .letter {
+  transition-duration: 1.4s;
+  transition-timing-function: cubic-bezier(.37,0,.22,1);
+}

@@ -155,7 +155,7 @@ openButton.addEventListener("click", async () => {
   // Печать исчезает, затем открывается клапан. Письмо всегда перед задней
   // стенкой и позади передней стенки: оно может выйти только вверх.
   if (!reducedMotion.matches) {
-    await pause(1000); // Сургучная печать завершает движение.
+    await pause(800); // 0–0,8 с: сургуч; затем 1 с на плавное открытие клапана.
     // Только фактическое завершение transform разрешает смену слоя клапана.
     await new Promise(resolve => {
       const flap = document.querySelector(".envelope-flap");
@@ -168,14 +168,11 @@ openButton.addEventListener("click", async () => {
       opening.classList.add("flap-open");
     });
     opening.classList.add("flap-settled"); // Полностью открытый клапан уходит за письмо.
-    await pause(160);
+    // 1,8–3,2 с: письмо и корпус движутся вместе, с прежней компенсацией.
     await waitForMovement(document.querySelector(".letter"), () => {
-      opening.classList.add("letter-out");
-    }, 1800);
-    await waitForMovement(document.querySelector(".envelope"), () => {
-      opening.classList.add("envelope-lowered");
-    }, 2300);
-    await pause(2200); // Пауза после подъёма для чтения приглашения.
+      opening.classList.add("letter-out", "envelope-lowered");
+    }, 1550);
+    await pause(1000); // 3,2–4,2 с: письмо спокойно остаётся по центру.
   }
   main.inert = false;
   document.body.classList.remove("invitation-closed");
@@ -184,7 +181,7 @@ openButton.addEventListener("click", async () => {
   window.scrollTo({ top: 0, behavior: "instant" });
   const firstLink = document.querySelector(".navigation a");
   firstLink.focus({ preventScroll: true });
-  await pause(reducedMotion.matches ? 20 : 1500);
+  await pause(reducedMotion.matches ? 20 : 800); // 4,2–5 с: плавный переход к сайту.
   opening.hidden = true;
 });
 
