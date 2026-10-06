@@ -156,14 +156,25 @@ openButton.addEventListener("click", async () => {
   // стенкой и позади передней стенки: оно может выйти только вверх.
   if (!reducedMotion.matches) {
     await pause(1000); // Сургучная печать завершает движение.
-    await waitForMovement(document.querySelector(".envelope-flap"), () => {
+    // Только фактическое завершение transform разрешает смену слоя клапана.
+    await new Promise(resolve => {
+      const flap = document.querySelector(".envelope-flap");
+      const finish = event => {
+        if (event.target !== flap || event.propertyName !== "transform") return;
+        flap.removeEventListener("transitionend", finish);
+        resolve();
+      };
+      flap.addEventListener("transitionend", finish);
       opening.classList.add("flap-open");
-    }, 1900);
+    });
     opening.classList.add("flap-settled"); // Полностью открытый клапан уходит за письмо.
     await pause(160);
     await waitForMovement(document.querySelector(".letter"), () => {
       opening.classList.add("letter-out");
-    }, 3000);
+    }, 1800);
+    await waitForMovement(document.querySelector(".envelope"), () => {
+      opening.classList.add("envelope-lowered");
+    }, 2300);
     await pause(2200); // Пауза после подъёма для чтения приглашения.
   }
   main.inert = false;
