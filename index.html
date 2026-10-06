@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ecd7bb">
+  <meta name="description" content="Приглашение на свадьбу">
+  <title>Приглашение на свадьбу</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preload" as="image" href="assets/images/sunset-arch.webp">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="invitation-closed">
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="ornament" viewBox="0 0 240 40"><path d="M0 20h85m70 0h85M88 20c20-12 23 12 32 0s12-16 15-7-8 17-15 7c-7-10-5-19 0-19s7 9 0 19c-7 10-3 18 0 18s7-8 0-18c-9-12-12 12-32 0Zm17 0c-13-13-19-4-10 0s-3 10 10 0m30 0c13-13 19-4 10 0s3 10-10 0"/></symbol>
+    <symbol id="branch" viewBox="0 0 120 200"><path d="M30 194C85 133 38 67 100 6M55 158C25 145 25 125 28 109c22 13 35 26 27 49Zm8-26c28-9 37-25 39-42-27 9-43 17-39 42ZM60 98C32 83 30 63 35 48c20 13 34 29 25 50Zm10-29c28-2 39-17 42-34-24 4-39 15-42 34ZM84 36C66 28 62 15 66 3c17 7 25 18 18 33Z"/></symbol>
+  <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol><symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol><symbol id="location" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol></defs></svg>
+  <div class="petals" aria-hidden="true"></div>
+  <div class="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
+    <div class="opening-shade"></div>
+    <div class="opening-content">
+      <p class="eyebrow" id="opening-title">Приглашение на свадьбу</p>
+      <p class="opening-names"><span data-groom></span><i>&</i><span data-bride></span></p>
+      <p class="opening-date" data-date></p>
+      <div class="envelope-stage" aria-hidden="true">
+        <div class="envelope">
+          <div class="envelope-back"></div>
+          <div class="envelope-interior"><div class="letter"><div class="letter-border"><span class="monogram" data-initials></span><p class="letter-greeting">Дорогие<br>родные и близкие!</p><p>С большой радостью<br>приглашаем вас<br>на нашу свадьбу.</p><span class="letter-heart">♡</span></div></div>
+          </div>
+          <div class="envelope-flap"><svg><use href="#branch"/></svg></div>
+          <div class="envelope-front"><svg class="branch-left"><use href="#branch"/></svg><svg class="branch-right"><use href="#branch"/></svg></div>
+          <div class="envelope-folds"></div>
+          <div class="wax-seal"><span data-initials></span></div>
+        </div>
+      </div>
+      <button class="button open-button" type="button">Открыть приглашение <span class="icon-wrapper"><svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><use href="#arrow-right"/></svg></span></button>
+      <p class="opening-note">Письмо, в котором начинается наш день</p>
+    </div>
+  </div>
+  <main id="wedding" inert>
+    <section class="hero landscape" id="home" aria-label="Приглашение на свадьбу">
+      <div class="landscape-image"></div><div class="silk silk-left" aria-hidden="true"></div><div class="silk silk-right" aria-hidden="true"></div>
+      <nav class="navigation" aria-label="Навигация"><a href="#home">Главная</a><a href="#program">Программа</a><a href="#venue">Место</a></nav>
+      <div class="hero-copy"><p class="eyebrow reveal">Приглашение<br>на свадьбу</p><svg class="ornament reveal"><use href="#ornament"/></svg><h1 class="names reveal"><span data-groom></span><i>&</i><span data-bride></span></h1><p class="date reveal" data-date></p><p class="city reveal" data-city></p><svg class="ornament reveal"><use href="#ornament"/></svg></div>
+      <a class="scroll-cue" href="#invitation" aria-label="Перейти к приглашению"><span class="scroll-circle"><span class="icon-wrapper"><svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><use href="#arrow-down"/></svg></span></span><small>Листайте вниз</small></a>
+    </section>
+    <div class="marble-sections">
+      <div class="invitation-group"><section class="invitation section" id="invitation"><img class="floral-accent right reveal" src="assets/images/blush-flowers.webp" alt="" aria-hidden="true"><div class="section-content"><span class="monogram reveal" data-initials></span><p class="eyebrow reveal">День, который мы ждали</p><h2 class="reveal">Приглашение</h2><svg class="ornament reveal"><use href="#ornament"/></svg><p class="greeting reveal">Дорогие родные и близкие!</p><p class="body-copy reveal">Мы с большой радостью приглашаем вас на нашу свадьбу. Этот день очень важен для нас, и мы будем счастливы разделить его вместе с вами!</p><svg class="ornament reveal"><use href="#ornament"/></svg></div></section>
+      <section class="countdown-section section" aria-labelledby="countdown-title"><div class="section-content"><h2 class="eyebrow reveal" id="countdown-title">До нашей свадьбы осталось</h2><div class="countdown reveal" role="timer" aria-label="Время до свадьбы"><div><span id="days">00</span><small>Дней</small></div><div><span id="hours">00</span><small>Часов</small></div><div><span id="minutes">00</span><small>Минут</small></div><div><span id="seconds">00</span><small>Секунд</small></div></div><p class="wedding-today" hidden>Наш счастливый день настал!</p><svg class="ornament reveal"><use href="#ornament"/></svg></div></section>
+      </div><section class="program section" id="program"><img class="floral-accent left reveal" src="assets/images/blush-flowers.webp" alt="" aria-hidden="true"><div class="section-content"><p class="eyebrow reveal">Каждый момент — вместе</p><h2 class="reveal">Программа дня</h2><p class="body-copy reveal">Мы подготовили для вас особенный вечер</p><ol class="timeline"></ol><svg class="ornament reveal"><use href="#ornament"/></svg></div></section>
+      <section class="venue section" id="venue"><img class="floral-accent right reveal" src="assets/images/blush-flowers.webp" alt="" aria-hidden="true"><div class="section-content"><svg class="ornament reveal"><use href="#ornament"/></svg><p class="eyebrow reveal">Здесь начнётся наш праздник</p><h2 class="reveal">Место проведения</h2><svg class="ornament reveal"><use href="#ornament"/></svg><p class="venue-name reveal" data-venue></p><p class="address reveal" data-address></p><a class="button map-button reveal" target="_blank" rel="noopener noreferrer"><span class="icon-wrapper"><svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><use href="#location"/></svg></span>Посмотреть на карте<span class="icon-wrapper"><svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><use href="#arrow-right"/></svg></span></a></div></section>
+    </div>
+    <section class="final landscape" aria-labelledby="final-title"><div class="landscape-image"></div><div class="final-copy"><span class="monogram reveal" data-initials></span><h2 class="reveal" id="final-title">Будем счастливы<br>разделить этот день<br>с вами</h2><svg class="ornament reveal"><use href="#ornament"/></svg><p class="date reveal" data-date></p><p class="city reveal" data-city></p></div><p class="final-signature">С любовью, <span data-bride></span> и <span data-groom></span></p></section>
+  </main>
+</body>
+</html>
